@@ -10,6 +10,16 @@ all of the given callbacks. In other words, if three callbacks are given then:
 
 Examples:
 
+*******************************************************************************/
+//let chainMap = (value, ...cb) =>  cb.reduce((accum, ele) => ele(accum), value)
+let chainMap = function(value, ...cb) {
+    //let result = 0
+   let result = cb.reduce((accum, ele) =>{
+        return ele(accum)
+    }, value )
+    return result
+};
+
 let add5 = function(n) {
     return n + 5;
 };
@@ -27,12 +37,6 @@ console.log(chainMap(25, add5, half));          // 15
 console.log(chainMap(25, add5, half, square));  // 225
 console.log(chainMap(4, square, half));         // 8
 console.log(chainMap(4, half, square));         // 4
-*******************************************************************************/
-
-let chainMap = function() {
-
-};
-
 
 
 

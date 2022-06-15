@@ -35,10 +35,20 @@ let result6 = one(['apple', 'dog', 'food', 'cat'], function(el, idx) {
     return el.length === idx;
 });
 console.log(result6);   // true
+Write a function `one` that accepts an array and a callback as arguments. The
+function should call the callback for each element of the array, passing in the
+element and its index. The function should return a boolean indicating whether
+or not exactly one element of the array results in true when passed into the callback.
+
 *******************************************************************************/
 
-let one = function() {
-
+let one = function (array, cb) {
+    let counter = 0
+    for (let i = 0; i < array.length; i++) {
+        let ele = array[i];
+        if (cb(ele, i)) counter++
+    }
+    return counter === 1
 };
 
 
